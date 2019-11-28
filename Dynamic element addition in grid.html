@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic element addition</title>
+    <link rel="stylesheet" href="Dynamic-element-addition-styles.css">
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- MAIN MENU -->
+        <div class="main-container">
+
+        <!-- MENU SECTION -->
+        <!-- <div id="menu"> -->
+            <header class="header">
+
+                <h2 class="title">Logo</h2>
+
+                
+                <nav class="sections-nav">
+                    <div class="sections">
+                        <label for="sections-button">Sections</label>
+
+                        <button class="sections_toggle" id="sections-button">
+                            <span class="hamburger"></span>
+                        </button>    
+                    </div>
+
+                    <div class="sections-content">
+                        <ul class="sections-list">
+                            <li class="sections-item"><a class="sections-link">Soups</a></li>
+                            <li class="sections-item"><a class="sections-link">Salads</a></li>
+                            <li class="sections-item"><a class="sections-link">Sandwiches</a></li>
+                            <li class="sections-item"><a class="sections-link">Burgers</a></li>
+                            <li class="sections-item"><a class="sections-link">Side Orders</a></li>
+                            <li class="sections-item"><a class="sections-link">Kid’s Menu</a></li>
+                            <li class="sections-item"><a class="sections-link">Dessert</a></li>
+                            <li class="sections-item"><a class="sections-link">Beverages</a></li>
+                        </ul>
+                    </div>
+                   
+                </nav>
+
+                <nav class="alg-nav">
+                        
+                    <div class="alg">
+                        <label for="alg-button">Allergens</label>
+                        
+                        <button class="alg_toggle" id="alg-button">
+                            <span class="alg-hamburger"></span>
+                        </button>
+                    </div>
+
+                    <div class="alg-content">
+                        <h4 class="center">Allergens</h4>    
+                        <ul class="alg-list">
+                            <li class="alg-item ">
+                                <label class="container" for='spicy'>Hot & spicy free
+                                  <input class="allergens" id="spicy" type="checkbox">
+                                  <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='vegan'>Vegan
+                                  <input class="allergens" id="vegan" type="checkbox">
+                                  <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='peanuts'>Peanuts Free
+                                  <input class="allergens" id="peanuts" type="checkbox">
+                                  <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='milk'>Milk Free
+                                    <input class="allergens" id="milk" type="checkbox">
+                                    <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='gluten'>Gluten Free
+                                    <input class="allergens" id="gluten" type="checkbox">
+                                    <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='fish'>Fish Free
+                                    <input class="allergens" id="fish" type="checkbox">
+                                    <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='sesame'>Sesame Seeds Free
+                                    <input class="allergens" id="sesame" type="checkbox">
+                                    <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            <li class="alg-item ">
+                                <label class="container" for='soya'>Soya Free
+                                    <input class="allergens" id="soya" type="checkbox">
+                                    <span class="checkmark"></span> 
+                                </label>
+                            </li>
+                            
+                            <!-- <li class="alg-item"><input class="allergens" id="vegan" type="checkbox"> <label for='vegan'>Vegan free</label></li>
+                            <li class="alg-item"><input class="allergens" id="penauts" type="checkbox"> <label for='penauts'>Peanuts free</label></li> -->
+                        </ul>
+                        <button class="clear-btn button" >Clear all (0)</button>
+                    </div>
+                </nav>
+
+        </header>
+
+        <aricle class="menu">
+
+            <div class="menu-category">
+                <h2>Burgers</h3>
+            </div>
+
+            <h3 class="menu-subcategory">Vegeterian</h3>
+
+            <div id="menu-items">
+                <div class="meal-card">
+                    <img class="meal-img" src="https://source.unsplash.com/random"/>
+                    <div class="meal-info">
+                        <h4 class="meal-title">Title 1</h4> 
+                        <div class="meal-desc">Detailed descreption 1</div>
+                    </div>
+                    <div class="meal-price">$<span class="meal-amount">25.00</span></div>
+                    <div class="meal-footer">
+                        <div class="meal-allergens">
+                                <span class="allergen">ale</span>
+                                <span class="allergen">gn</span>  
+                        </div>
+                        <div class="meal-order-button-container">
+                            <button class="button meal-order-button">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card">
+                    <img class="meal-img" src="https://source.unsplash.com/random"/>
+                    <div class="meal-info">
+                        <h4 class="meal-title">Title 2</h4> 
+                        <div class="meal-desc">Detailed descreption 2</div>
+                    </div>
+                    <div class="meal-price">$<span class="meal-amount">43.00</span></div>
+                    <div class="meal-footer">
+                        <div class="meal-allergens">
+                            <span class="allergen">ale</span>
+                            <span class="allergen">gn</span>  
+                        </div>
+                        <div class="meal-order-button-container">
+                            <button class="button meal-order-button">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card">
+                    <img class="meal-img" src="https://source.unsplash.com/random"/>
+                    <div class="meal-info">
+                        <h4 class="meal-title">Title 3</h4> 
+                        <div class="meal-desc">Detailed descreption 3</div>
+                    </div>
+                    <div class="meal-price">$<span class="meal-amount">6.00</span></div>
+                    <div class="meal-footer">
+                        <div class="meal-allergens">
+                            <span class="allergen">ale</span>
+                            <span class="allergen">gn</span>  
+                        </div>
+                        <div class="meal-order-button-container">
+                            <button class="button meal-order-button">Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meal-card">
+                    <img class="meal-img" src="https://source.unsplash.com/random"/>
+                    <div class="meal-info">
+                        <h4 class="meal-title">Title 4</h4> 
+                        <div class="meal-desc">Detailed descreption 4</div>
+                    </div>
+                    <div class="meal-price">$<span class="meal-amount">35.00</span></div>
+                    <div class="meal-footer">
+                        <div class="meal-allergens">
+                                <span class="allergen">ale</span>
+                                <span class="allergen">gn</span>  
+                        </div>
+                        <div class="meal-order-button-container">
+                            <button class="button meal-order-button">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aricle>
+        </div>
+
+        <!-- ORDER SECTION -->
+        <div class="order-section">
+            <ul class="order-tabs">
+                <li data-tab-target="#current-order" class="active tab">Order</li>
+                <li data-tab-target="#past" class="tab">Past Orders</li>
+                <li data-tab-target="#recent" class="tab">Recent</li>
+            </ul>
+            
+            <div class="tab-content">
+                <!-- CURRENT -->
+                <div id="current-order" data-tab-content>
+                    <div class="total-price-top"><sup>$</sup> 0</div>
+                    <ul class="order-list">
+                    </ul>
+                    <div class="total-container">
+                        <span>Total</span>
+                        <span class="total-price">0</span>
+                    </div>
+                </div>
+
+                <!-- PAST -->
+                <div id="past" data-tab-content>
+                    <div class="total-price-top"><sup>$</sup> 54.70</div>
+                    <ul class="past-list">
+                        <li class="order-item">
+                            <p class="order-quantity ">2</p>
+                            <p class="order-title" name='Title 12'>Title past</p>
+                            <p class="order-price right">54.70</p>
+                        </li>
+                    </ul>
+                    <div class="total-container">
+                        <span>Total</span>
+                        <span class="total-price">54.70</span>
+                    </div>
+                </div>
+
+                <!-- RECENT -->
+                <div id="recent" data-tab-content>
+                    <div class="total-price-top"><sup>$</sup> 156.00</div>
+                    <ul class="recent-list">
+                        <li class="order-item">
+                            <p class="order-quantity ">1</p>
+                            <p class="order-title" name='Title recent'>Title recent</p>
+                            <p class="order-price right">156.00</p>
+                        </li>
+                    </ul>
+                    <div class="total-container">
+                        <span>Total</span>
+                        <span class="total-price">156.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var tabs = document.querySelectorAll('[data-tab-target]');
+    const tabContents = document.querySelectorAll('[data-tab-content]')
+    const current_order_tab =  [...tabs].find( tab => tab.dataset.tabTarget == '#current-order');
+    tabs.forEach(tab =>{
+            tab.addEventListener('click', () =>{
+                setActiveTab(tab, tabContents)
+            })
+        });
+
+    // Each "Order" button of meal cards.
+    let order_buttons = document.querySelectorAll(".meal-order-button");
+    
+    // Here we will store all order items from Orders tab for easy access
+    let order_list = [];
+    // When order button is clicked create menu-item and add it in Orders tab
+    order_buttons.forEach(button =>{
+        button.addEventListener("click", () =>{
+            addMealInOrder(button);
+            addRemoveBtns(button);
+            // Set the current Order tab active when the order button is clicked.
+            setActiveTab(current_order_tab, tabContents);
+        });
+    });
+
+    function addRemoveBtns(button){
+        let meal_footer = button.closest('.meal-footer')
+        let quantity = 1;
+        const order_button_container = button.parentElement;
+        // console.log('button-container: ',order_button_container);
+        // const meal_quantity_container = `
+        //     <div class="meal-allergens">
+        //         <span class="allergen">αλε</span>
+        //         <span class="allergen">τζεν</span>  
+        //     </div>
+        //     <div class="meal-quantity-container">
+        //         <button class="meal-remove">-</button>
+        //         <span class="meal-quantity">1</span>
+        //         <button class="meal-add">+</button>
+        //     </div>
+        // `;
+
+        var meal_quantity_container = document.createElement('div');
+        meal_quantity_container.classList.add('meal-quantity-container');
+        meal_quantity_container.innerHTML = `
+            <button class="meal-remove">-</button>
+            <span class="meal-quantity">1</span>
+            <button class="meal-add">+</button>
+        `;
+
+        
+       
+
+        // Replace the order button with +,- buttons and order quantity counter
+        // console.log('meal-quan-container: ', meal_quantity_container);
+        meal_footer.replaceChild(meal_quantity_container, order_button_container);
+
+        // Add event listeners to + button
+        let meal_add = meal_footer.querySelector('.meal-add');
+        console.log('meal-plus: ', meal_add);
+        meal_add.addEventListener("click", () =>{
+            addMealInOrder(meal_add);
+            setActiveTab(current_order_tab, tabContents);
+        });
+
+        // Add event listener to - button
+        let meal_remove = meal_footer.querySelector('.meal-remove');
+        console.log('meal-remove: ', meal_remove);
+        meal_remove.addEventListener("click", () =>{
+            removeMealFromOrder(meal_remove, order_button_container);
+            setActiveTab(current_order_tab, tabContents);
+        });
+    }
+
+    function addMealInOrder(button){  
+        let current_meal_title =  button.closest('.meal-card').querySelector('.meal-title').innerHTML;
+        let current_meal_price = button.closest('.meal-card').querySelector('.meal-amount').innerHTML;
+        let current_meal_quantity = button.closest('.meal-card').querySelector('.meal-quantity');
+        // Retrieve order list (only meal titles) before jump into any actions
+        order_list = [...document.querySelectorAll('.order-title')].map(order => order.innerHTML);
+        
+        if(order_list.includes(current_meal_title)){
+            let existing_order = document.querySelector('#current-order').querySelector(`[name="${current_meal_title}"]`);
+            let existing_quantity = existing_order.querySelector('.order-quantity');
+            let existing_price = existing_order.querySelector('.order-price');
+            console.log('existing order: ', existing_order);
+            existing_quantity.innerHTML ++;
+            current_meal_quantity.innerHTML ++;
+            existing_price.innerHTML = current_meal_price * existing_quantity.innerHTML ;
+            // existing_price.innerHTML = 
+            // existing_price =+ Number(current_meal_price);
+            
+            calculateTotal(current_meal_price);
+
+        }else{
+            // Create new OrderItem object to be placed in the Orders tab.      
+            let current_order = new OrderItem(current_meal_title, current_meal_price);
+            // Place the menu-item in order section.
+            document.querySelector(".order-list").appendChild(current_order.element());
+            // Calculate total price
+            calculateTotal(current_meal_price);
+        }
+
+        // Keeping all places order in an array for easier access.
+        // order_list.push(current_order);
+        console.log('order-list: ', order_list);
+    }
+
+    function removeMealFromOrder(minusButton, order_button_container){  
+        let current_meal_title =  minusButton.closest('.meal-card').querySelector('.meal-title').innerHTML;
+        let current_meal_price = minusButton.closest('.meal-card').querySelector('.meal-amount').innerHTML;
+        let current_meal_quantity = minusButton.closest('.meal-card').querySelector('.meal-quantity');
+
+        let existing_order = document.querySelector(`[name="${current_meal_title}"]`);
+        
+        // Retrieve order list (only meal titles) before jump into any actions
+        order_list = [...document.querySelectorAll('.order-title')].map(order => order.innerHTML == current_meal_title);
+        
+            
+            
+            let existing_quantity = existing_order.querySelector('.order-quantity');
+            let existing_price = existing_order.querySelector('.order-price');
+            
+            existing_quantity.innerHTML --;
+            current_meal_quantity.innerHTML --;
+            existing_price.innerHTML = current_meal_price * existing_quantity.innerHTML ;
+            calculateTotal(current_meal_price * (-1)); //Change the sign, so it will be deductin from total price.
+            
+            if(current_meal_quantity.innerHTML == 0){
+            // Remove the menu-item in order section.
+            console.log("removeChild(current_order.element());",document.querySelector(".order-list"));
+            document.querySelector(".order-list").removeChild(existing_order);
+
+            // Replace plus minus button with order button
+            let meal_quantity_container = minusButton.closest('.meal-quantity-container');
+            let meal_footer = minusButton.closest('.meal-footer');
+            console.log('mqc: ', meal_quantity_container);
+            meal_footer.replaceChild(order_button_container, meal_quantity_container);
+            
+
+        }
+    }
+
+    
+
+    // Calculate the total price of all orders when adding or removing addition orders
+    function calculateTotal(current_meal_price){
+            const total = document.querySelector('.total-price');
+            const total_top = document.querySelector('.total-price-top');
+            total.innerHTML = parseInt(total.innerHTML) + parseInt(current_meal_price);
+            total_top.innerHTML = `<sup>$</sup> ${total.innerHTML}`;
+    }
+
+        // Constructs OrderItem object containing meal details and constructs order_item HTML element.
+        function OrderItem(meal_title, meal_price) {
+            this.title =  meal_title,
+            this.price = meal_price,
+            this.quantity = 1,
+            this.element = function(button) 
+            {
+                
+                // Get the title, price adn quantity of each meal in a p
+                var meal_title = document.createElement("p");
+                meal_title.innerHTML= this.title;
+                meal_title.classList.add('order-title');
+
+                
+                var meal_price =document.createElement("p");
+                meal_price.classList.add("order-price");
+                meal_price.classList.add("right");
+                meal_price.innerHTML = this.price;
+
+                var meal_quantity = document.createElement("p");
+                meal_quantity.classList.add("order-quantity");
+                meal_quantity.innerHTML = this.quantity;
+
+                // Create a div and appent meal title and price and quantity.
+                var order_element = document.createElement("li");
+                order_element.setAttribute('name', `${this.title}`);
+                order_element.classList.add("order-item");
+                order_element.appendChild(meal_quantity);
+                order_element.appendChild(meal_title);
+                order_element.appendChild(meal_price);
+                
+                return order_element;
+            }
+            console.log("Object item order: ", this.element());
+            //For readability I can create the elements using JS Template Literals
+                // ****************************
+                // For example:
+                //const some_html = `
+                //   <div class="module">
+                //     <h2>${data.title}</h2>
+                //     <p>${data.content}</p>
+                //   </div>
+                // `;
+                // ***************************
+        };
+
+        // Set active the tab that was clicked and show its content
+        function setActiveTab(tab, tabContents){
+            const target = document.querySelector(tab.dataset.tabTarget);
+            // console.log('tabTarget',tab.dataset.tabTarget);
+                tabContents.forEach(tabContent =>{
+                    tabContent.classList.remove('active');
+                })
+                target.classList.add('active');
+                tabs.forEach(tab =>{
+                    tab.classList.remove('active');
+                })
+                tab.classList.add('active');
+        }
+
+
+
+
+    // select all allergen checkboxes
+    var allergens = document.querySelectorAll(".allergens");
+    // select all allergen "cheked" checkboxes
+    var allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
+    // select "Clear all" button to update its value when a checkbox is clicked
+    var clear_btn  = document.querySelector(".clear-btn");
+    console.log("Allergens: "+allergens.length);
+    console.log("Allergens-2: "+allergens_checked.length);
+
+    
+    // When a chcekbox is clicked select all "checked" checkboxes 
+    // and update the "Clear all" button with the number of checked checboxes
+    // using the length of the checked array. 
+    allergens.forEach(function (element) {
+        element.addEventListener("click", () => {
+            allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
+            console.log("Allergens-checked: "+ allergens_checked.length);
+            clear_btn.innerHTML = `Clear all (${allergens_checked.length})`;
+            console.log("Button value: "+clear_btn.textContent);
+        });
+    });
+
+
+    // When "Clear all" button is clicked uncheck all checkboxes
+    // Select all checkboxes and forEachone change its state to unchecked
+    // Update the button text to match the number of checked checkboxes
+    clear_btn.addEventListener("click", () => {
+        allergens.forEach(element => {
+            element.checked =false;     
+        });
+        allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
+        clear_btn.textContent = "Clear all ("+allergens_checked.length+")";
+        console.log("unchecked!!!");
+    });
+
+    
+    // Navigation menus functionality
+    const sections_nav_class = 'sections-nav';
+    const sections_nav = document.querySelector(`.${sections_nav_class}`);
+
+    const allergens_nav_class = 'alg-nav';
+    const alg_nav = document.querySelector(`.${allergens_nav_class}`);
+
+
+    const sectionsToggle = document.querySelector('.sections_toggle');
+    sectionsToggle.addEventListener('click', () => {
+        sections_nav.classList.toggle(`sections-open`);
+        closeAllergens();
+    });
+
+    const algToggle = document.querySelector('.alg_toggle');
+    algToggle.addEventListener('click', () => {
+        alg_nav.classList.toggle('alg-open');
+        closeSections();
+    });
+
+
+    function closeSections(){
+        // sections_elements.forEach(element =>{
+            sections_nav.classList.remove(`sections-open`);
+        // });
+    }
+
+    function closeAllergens(){
+        // allergens_elements.forEach(element =>{
+            alg_nav.classList.remove(`alg-open`);
+        // });
+    }
+</script>
+
+</html>
