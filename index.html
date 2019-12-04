@@ -10,20 +10,15 @@
 <body>
     <div id="wrapper">
 
-        <!-- MAIN MENU -->
         <div class="main-container">
 
-        <!-- MENU SECTION -->
-        <!-- <div id="menu"> -->
+        <!-- Header -->
             <header class="header">
-
                 <h2 class="title">Logo</h2>
-
-                
+                <!-- Side navigation menu -->
                 <nav class="sections-nav">
                     <div class="sections">
                         <label for="sections-button">Sections</label>
-
                         <button class="sections_toggle" id="sections-button">
                             <span class="hamburger"></span>
                         </button>    
@@ -41,21 +36,20 @@
                             <li class="sections-item"><a class="sections-link">Beverages</a></li>
                         </ul>
                     </div>
-                   
                 </nav>
 
                 <nav class="alg-nav">
-                        
                     <div class="alg">
                         <label for="alg-button">Allergens</label>
-                        
                         <button class="alg_toggle" id="alg-button">
                             <span class="alg-hamburger"></span>
                         </button>
                     </div>
 
                     <div class="alg-content">
-                        <h4 class="center">Allergens</h4>    
+
+                        <h4 class="center">Allergens</h4>  
+
                         <ul class="alg-list">
                             <li class="alg-item ">
                                 <label class="container" for='spicy'>Hot & spicy free
@@ -105,24 +99,24 @@
                                     <span class="checkmark"></span> 
                                 </label>
                             </li>
-                            
-                            <!-- <li class="alg-item"><input class="allergens" id="vegan" type="checkbox"> <label for='vegan'>Vegan free</label></li>
-                            <li class="alg-item"><input class="allergens" id="penauts" type="checkbox"> <label for='penauts'>Peanuts free</label></li> -->
                         </ul>
+
                         <button class="clear-btn button" >Clear all (0)</button>
+
                     </div>
                 </nav>
 
         </header>
 
+        <!-- Meals -->
         <aricle class="menu">
-
             <div class="menu-category">
                 <h2>Burgers</h3>
             </div>
 
             <h3 class="menu-subcategory">Vegeterian</h3>
 
+            <!-- list of meals -->
             <div id="menu-items">
                 <div class="meal-card">
                     <div class="meal-img"></div>
@@ -199,7 +193,7 @@
         </aricle>
         </div>
 
-        <!-- ORDER SECTION -->
+        <!-- Order section -->
         <div class="order-section">
             <ul class="order-tabs">
                 <li data-tab-target="#current-order" class="active tab">Order</li>
@@ -208,7 +202,7 @@
             </ul>
             
             <div class="tab-content">
-                <!-- CURRENT -->
+                <!-- current order tab -->
                 <div id="current-order" data-tab-content>
                     <div class="total-price-top"><sup>$</sup> 0</div>
                     <ul class="order-list">
@@ -219,7 +213,7 @@
                     </div>
                 </div>
 
-                <!-- PAST -->
+                <!-- past order tab -->
                 <div id="past" data-tab-content>
                     <div class="total-price-top"><sup>$</sup> 54.70</div>
                     <ul class="past-list">
@@ -235,7 +229,7 @@
                     </div>
                 </div>
 
-                <!-- RECENT -->
+                <!-- recent order tab -->
                 <div id="recent" data-tab-content>
                     <div class="total-price-top"><sup>$</sup> 156.00</div>
                     <ul class="recent-list">
@@ -257,34 +251,36 @@
 
 <script>
 
-    var tabs = document.querySelectorAll('[data-tab-target]');
+    // Each "Order" button of meal cards.
+    const order_buttons = document.querySelectorAll(".meal-order-button");
+    const tabs = document.querySelectorAll('[data-tab-target]');
     const tabContents = document.querySelectorAll('[data-tab-content]')
     const current_order_tab =  [...tabs].find( tab => tab.dataset.tabTarget == '#current-order');
+    
     tabs.forEach(tab =>{
             tab.addEventListener('click', () =>{
                 setActiveTab(tab, tabContents)
             })
         });
 
-    // Each "Order" button of meal cards.
-    let order_buttons = document.querySelectorAll(".meal-order-button");
+    
     
     // Here we will store all order items from Orders tab for easy access
     let order_list = [];
     // When order button is clicked create menu-item and add it in Orders tab
-    order_buttons.forEach(button =>{
-        button.addEventListener("click", () =>{
-            addMealInOrder(button);
-            addRemoveBtns(button);
+    order_buttons.forEach(order_button =>{
+        order_button.addEventListener("click", () =>{
+            addMealInOrder(order_button);
+            addRemoveBtns(order_button);
             // Set the current Order tab active when the order button is clicked.
             setActiveTab(current_order_tab, tabContents);
         });
     });
 
-    function addRemoveBtns(button){
-        let meal_footer = button.closest('.meal-footer')
+    function addRemoveBtns(order_button){
+        let meal_footer = order_button.closest('.meal-footer')
         let quantity = 1;
-        const order_button_container = button.parentElement;
+        const order_button_container = order_button.parentElement;
         // console.log('button-container: ',order_button_container);
         // const meal_quantity_container = `
         //     <div class="meal-allergens">
@@ -330,10 +326,12 @@
         });
     }
 
-    function addMealInOrder(button){  
-        let current_meal_title =  button.closest('.meal-card').querySelector('.meal-title').innerHTML;
-        let current_meal_price = button.closest('.meal-card').querySelector('.meal-amount').innerHTML;
-        let current_meal_quantity = button.closest('.meal-card').querySelector('.meal-quantity');
+
+    function addMealInOrder(order_button){  
+        let current_meal_title =  order_button.closest('.meal-card').querySelector('.meal-title').innerHTML;
+        let current_meal_price = order_button.closest('.meal-card').querySelector('.meal-amount').innerHTML;
+        let current_meal_quantity = order_button.closest('.meal-card').querySelector('.meal-quantity');
+        
         // Retrieve order list (only meal titles) before jump into any actions
         order_list = [...document.querySelectorAll('.order-title')].map(order => order.innerHTML);
         
@@ -341,13 +339,10 @@
             let existing_order = document.querySelector('#current-order').querySelector(`[name="${current_meal_title}"]`);
             let existing_quantity = existing_order.querySelector('.order-quantity');
             let existing_price = existing_order.querySelector('.order-price');
-            console.log('existing order: ', existing_order);
+            
             existing_quantity.innerHTML ++;
             current_meal_quantity.innerHTML ++;
-            existing_price.innerHTML = current_meal_price * existing_quantity.innerHTML ;
-            // existing_price.innerHTML = 
-            // existing_price =+ Number(current_meal_price);
-            
+            existing_price.innerHTML = current_meal_price * existing_quantity.innerHTML ; 
             calculateTotal(current_meal_price);
 
         }else{
@@ -358,10 +353,6 @@
             // Calculate total price
             calculateTotal(current_meal_price);
         }
-
-        // Keeping all places order in an array for easier access.
-        // order_list.push(current_order);
-        console.log('order-list: ', order_list);
     }
 
     function removeMealFromOrder(minusButton, order_button_container){  
@@ -409,136 +400,124 @@
             total_top.innerHTML = `<sup>$</sup> ${total.innerHTML}`;
     }
 
-        // Constructs OrderItem object containing meal details and constructs order_item HTML element.
-        function OrderItem(meal_title, meal_price) {
-            this.title =  meal_title,
-            this.price = meal_price,
-            this.quantity = 1,
-            this.element = function(button) 
-            {
-                
-                // Get the title, price adn quantity of each meal in a p
-                var meal_title = document.createElement("p");
-                meal_title.innerHTML= this.title;
-                meal_title.classList.add('order-title');
+    // Constructs OrderItem object containing meal details and constructs order_item HTML element.
+    function OrderItem(meal_title, meal_price) {
+        this.title =  meal_title,
+        this.price = meal_price,
+        this.quantity = 1,
+        this.element = function(){
+            
+            // Get the title, price adn quantity of each meal in a p
+            var meal_title = document.createElement("p");
+            meal_title.innerHTML= this.title;
+            meal_title.classList.add('order-title');
 
-                
-                var meal_price =document.createElement("p");
-                meal_price.classList.add("order-price");
-                meal_price.classList.add("right");
-                meal_price.innerHTML = this.price;
+            var meal_price =document.createElement("p");
+            meal_price.classList.add("order-price");
+            meal_price.classList.add("right");
+            meal_price.innerHTML = this.price;
 
-                var meal_quantity = document.createElement("p");
-                meal_quantity.classList.add("order-quantity");
-                meal_quantity.innerHTML = this.quantity;
+            var meal_quantity = document.createElement("p");
+            meal_quantity.classList.add("order-quantity");
+            meal_quantity.innerHTML = this.quantity;
 
-                // Create a div and appent meal title and price and quantity.
-                var order_element = document.createElement("li");
-                order_element.setAttribute('name', `${this.title}`);
-                order_element.classList.add("order-item");
-                order_element.appendChild(meal_quantity);
-                order_element.appendChild(meal_title);
-                order_element.appendChild(meal_price);
-                
-                return order_element;
-            }
-            console.log("Object item order: ", this.element());
-            //For readability I can create the elements using JS Template Literals
-                // ****************************
-                // For example:
-                //const some_html = `
-                //   <div class="module">
-                //     <h2>${data.title}</h2>
-                //     <p>${data.content}</p>
-                //   </div>
-                // `;
-                // ***************************
-        };
-
-        // Set active the tab that was clicked and show its content
-        function setActiveTab(tab, tabContents){
-            const target = document.querySelector(tab.dataset.tabTarget);
-            // console.log('tabTarget',tab.dataset.tabTarget);
-                tabContents.forEach(tabContent =>{
-                    tabContent.classList.remove('active');
-                })
-                target.classList.add('active');
-                tabs.forEach(tab =>{
-                    tab.classList.remove('active');
-                })
-                tab.classList.add('active');
+            // Create a div and appent meal title and price and quantity.
+            var order_element = document.createElement("li");
+            order_element.setAttribute('name', `${this.title}`);
+            order_element.classList.add("order-item");
+            order_element.appendChild(meal_quantity);
+            order_element.appendChild(meal_title);
+            order_element.appendChild(meal_price);
+            return order_element;
         }
+        //For readability I can create the elements using JS Template Literals
+            // ****************************
+            // For example:
+            //const some_html = `
+            //   <div class="module">
+            //     <h2>${data.title}</h2>
+            //     <p>${data.content}</p>
+            //   </div>
+            // `;
+            // ***************************
+    };
+
+    // Set active the tab that was clicked and show its content
+    function setActiveTab(tab, tabContents){
+        const target = document.querySelector(tab.dataset.tabTarget);
+        tabContents.forEach(tabContent =>{
+            tabContent.classList.remove('active');
+        })
+        target.classList.add('active');
+        tabs.forEach(tab =>{
+            tab.classList.remove('active');
+        })
+        tab.classList.add('active');
+    }
 
 
-
-
-    // select all allergen checkboxes
+    // Allergens menu 
+    // Select all allergen checkboxes
     var allergens = document.querySelectorAll(".allergens");
-    // select all allergen "cheked" checkboxes
+    // Select all allergen "cheked" checkboxes
     var allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
-    // select "Clear all" button to update its value when a checkbox is clicked
+    // Select "Clear all" button to update its value when a checkbox is clicked
     var clear_btn  = document.querySelector(".clear-btn");
-    console.log("Allergens: "+allergens.length);
-    console.log("Allergens-2: "+allergens_checked.length);
-
     
     // When a chcekbox is clicked select all "checked" checkboxes 
     // and update the "Clear all" button with the number of checked checboxes
-    // using the length of the checked array. 
+    // using the length of the allergens_checked array. 
     allergens.forEach(function (element) {
         element.addEventListener("click", () => {
             allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
-            console.log("Allergens-checked: "+ allergens_checked.length);
+            console.log("Allergens-checked:",allergens_checked.length);
             clear_btn.innerHTML = `Clear all (${allergens_checked.length})`;
-            console.log("Button value: "+clear_btn.textContent);
+            console.log("Button value: ",clear_btn.textContent);
         });
     });
 
 
+    // "Clear all" button
     // When "Clear all" button is clicked uncheck all checkboxes
-    // Select all checkboxes and forEachone change its state to unchecked
+    // Select all checkboxes and for each one change its state to unchecked
     // Update the button text to match the number of checked checkboxes
     clear_btn.addEventListener("click", () => {
         allergens.forEach(element => {
             element.checked =false;     
         });
         allergens_checked = document.querySelectorAll('input[type=checkbox]:checked');
-        clear_btn.textContent = "Clear all ("+allergens_checked.length+")";
-        console.log("unchecked!!!");
+        clear_btn.textContent = `Clear all (${allergens_checked.length})`;
     });
 
     
     // Navigation menus functionality
     const sections_nav_class = 'sections-nav';
     const sections_nav = document.querySelector(`.${sections_nav_class}`);
-
-    const allergens_nav_class = 'alg-nav';
-    const alg_nav = document.querySelector(`.${allergens_nav_class}`);
-
-
+   
+    
     const sectionsToggle = document.querySelector('.sections_toggle');
+   
+
     sectionsToggle.addEventListener('click', () => {
         sections_nav.classList.toggle(`sections-open`);
         closeAllergens();
     });
 
+    const allergens_nav_class = 'alg-nav';
+    const alg_nav = document.querySelector(`.${allergens_nav_class}`);
     const algToggle = document.querySelector('.alg_toggle');
+    
     algToggle.addEventListener('click', () => {
         alg_nav.classList.toggle('alg-open');
         closeSections();
     });
 
-
     function closeSections(){
-        // sections_elements.forEach(element =>{
-            sections_nav.classList.remove(`sections-open`);
-        // });
+        sections_nav.classList.remove(`sections-open`);
     }
 
     function closeAllergens(){
-        // allergens_elements.forEach(element =>{
-            alg_nav.classList.remove(`alg-open`);
-        // });
+        alg_nav.classList.remove(`alg-open`);
     }
 </script>
 
